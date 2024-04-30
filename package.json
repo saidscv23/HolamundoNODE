@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/saidscv23/HolamundoNODE/issues"
   },
-  "homepage": "https://github.com/saidscv23/HolamundoNODE#readme"
+  "homepage": "https://github.com/saidscv23/HolamundoNODE#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
