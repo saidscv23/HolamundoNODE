@@ -21,6 +21,7 @@ console.log('la consola esta corriendo3');
 })
 
 //Definir atraves de un parametro
+//localhost:3000/suma/9
 
 app.get('/suma/:n1',(req, res)=>{
   const  num1=parseInt(req.params.n1);
@@ -30,7 +31,7 @@ app.get('/suma/:n1',(req, res)=>{
   
   })
 
-
+////localhost:3000/suma/52
 
 //Definir atraves de un parametro
 
@@ -55,6 +56,11 @@ app.get('/suma1/:n1',(req, res)=>{
     });
   
 
+
+
+
+// localhost:3000/resta/20/9
+
     app.get('/resta/:n1/:n2',(req, res)=>{
 
       const n1=parseInt(req.params.n1);
@@ -68,8 +74,10 @@ app.get('/suma1/:n1',(req, res)=>{
 
 
 
-//
-    
+
+
+     //localhost:3000/nombre?name=pineda
+
       app.get('/nombre',(req, res)=>{
 
         const datoObtener=req.query.name;
@@ -78,6 +86,7 @@ app.get('/suma1/:n1',(req, res)=>{
         });
 
         //suma de dos numeros sin definir parametros
+        //localhost:3000/sumar10?n1=12&n2=8
       
         app.get('/sumar10',(req, res)=>{
 
