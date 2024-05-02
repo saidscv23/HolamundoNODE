@@ -60,6 +60,13 @@ app.get('/suma1/:n1',(req, res)=>{
 
 
 
+
+
+
+
+
+
+
 // localhost:3000/resta/20/9
 
     app.get('/resta/:n1/:n2',(req, res)=>{
@@ -99,6 +106,11 @@ app.get('/suma1/:n1',(req, res)=>{
           });
 
 
+
+          
+  
+
+
   
 // resta sin parametros y json
 // localhost:3000/restar10?n1=20&n22=10
@@ -117,7 +129,54 @@ if(n1>n2){
 const resul={total:resultado};
 res.json(resul);
 
-});   
+}); 
+
+//http//localhost:3000/conejos?p=5&nPar=5&nCri=3&tMor=20
+app.get('/conejos',(req,res)=>{
+  var pActual=0,pMuere=0,pTotal=0,numCrias=0,parejas=0;
+  //periodo
+  const peri=parseInt(req.query.p);
+  //número de parejas conejos
+  const nParejas=parseInt(req.query.nPar);
+  //número de crías
+  const nCrias=parseInt(req.query.nCri);
+  //tasa de Mortalidad
+  const tMort=parseInt(req.query.tMor);
+
+  // Lista para almacenar los resultados por período
+  const resultadosT = [];
+
+  for(let i=0;i<=peri;i++){
+      if(i==0){
+      parejas=nParejas;
+      pActual=nParejas*2; 
+      pMuere=pActual*tMort/100;
+      pTotal=pActual-pMuere;}
+      else{
+          numCrias=nParejas*nCrias;
+          pActual+=numCrias;
+          pMuere=pActual*tMort/100;
+          pTotal=pActual-pMuere;
+          parejas=pTotal/2;
+      }
+   
+      const resultados={periodo: i,pAnual:pActual,
+                        pMorir:pMuere,
+                        pRestante:pTotal,
+                        nParejas:parejas,
+                        nCrias:numCrias};
+
+
+                        
+
+                        resultadosT.push(resultados);
+
+
+  }
+  res.json(resultadosT);
+
+});
+
 
 //servicio del puerto
 app.listen(3000)
