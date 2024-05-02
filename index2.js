@@ -20,6 +20,7 @@ console.log('la consola esta corriendo3');
 
 })
 
+
 //Definir atraves de un parametro
 //localhost:3000/suma/9
 
@@ -97,7 +98,26 @@ app.get('/suma1/:n1',(req, res)=>{
           
           });
 
-      
+
+  
+// resta sin parametros y json
+// localhost:3000/restar10?n1=20&n22=10
+app.get('/restar10',(req, res)=>{
+
+const n1=parseInt(req.query.n1);
+const n2=parseInt(req.query.n2);
+var resultado =0;
+if(n1>n2){
+
+  resultado=n1-n2;
+}else{
+  resultado=n2-n1;
+
+}
+const resul={total:resultado};
+res.json(resul);
+
+});   
 
 //servicio del puerto
 app.listen(3000)
