@@ -131,6 +131,15 @@ res.json(resul);
 
 }); 
 
+
+
+
+
+
+
+
+//ciclo for,condiciones
+
 //http//localhost:3000/conejos?p=5&nPar=5&nCri=3&tMor=20
 app.get('/conejos',(req,res)=>{
   var pActual=0,pMuere=0,pTotal=0,numCrias=0,parejas=0;
@@ -181,3 +190,5 @@ app.get('/conejos',(req,res)=>{
 //servicio del puerto
 app.listen(3000)
 
+// cliente que consuma el servicio de los conejos
+//escritorio , web , movil
