@@ -1,12 +1,22 @@
 [
   {
     "id": 1,
-    "name": "Juan",
-    "edad": "25"
+    "name": "vladimir",
+    "edad": "30"
   },
   {
     "id": 3,
     "name": "lupe",
     "edad": "25"
+  },
+  {
+    "id": 4,
+    "name": "Paulina",
+    "edad": "32"
+  },
+  {
+    "id": 5,
+    "name": "gabriela",
+    "edad": "32"
   }
 ]

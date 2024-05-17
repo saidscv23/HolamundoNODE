@@ -3,7 +3,7 @@ const fs = require('fs');// Importa el módulo del sistema de archivos de Node.j
 const app = express();
 app.use(express.json());
 
-var secuencia = 1; 
+var secuencia = 1; // Variable para mantener la secuencia de IDs
 
 // Leer el archivo persona.json
 function readDatabase() {
@@ -15,9 +15,18 @@ function writeDatabase(data) {
     fs.writeFileSync('persona.json', JSON.stringify(data, null, 2), 'utf-8');
 }
 
+function inicializar() {
+    const listaNombres = readDatabase();
+    const id = listaNombres.reduce((max, item) => item.id > max ? item.id : max, 0);
+    secuencia = id + 1;
+}
+
+inicializar();
+
+
 // Manejar todas las solicitudes en la ruta /hola
 app.all('/hola', (req, res) => {
-    let listaNombres = readDatabase();
+    var listaNombres = readDatabase();//Lee el contenido del archivo persona.json y lo almacena en la variable listaNombres.
     
     switch (req.method) {
         case 'POST':
@@ -81,7 +90,7 @@ app.all('/hola', (req, res) => {
             break;
 
         default:
-            res.status(405).send({ message: 'Método no permitido' });
+        
     }
 });
 
